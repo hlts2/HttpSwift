@@ -17,8 +17,15 @@ HttpSwift.instance
 
 ### Request type
 
+`HttpSwift.instance.get(url: "https://~~~~")`
 
+`HttpSwift.instance.post(url: "https://~~~~")`
 
+`HttpSwift.instance.put(url: "https://~~~~")`
+
+`HttpSwift.instance.delete(url: "https://~~~~")`
+
+`HttpSwift.instance.patch(url: "https://~~~~")`
 
 ## Requirements
 Swift3.0 or latter.
