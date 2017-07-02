@@ -2,12 +2,18 @@
 HttpSwift is simple http client library for swift
 
 ## How to use
+Fist, you need to import this library
+```swift
+import HttpSwift
+```
 
 ### Basic example
 
-```swift
-import HttpSwift
+## GET
 
+The most basic request.
+
+```swift
 HttpSwift.instance
     .get(url: "https://~~~~")
     .do() { response in
@@ -16,16 +22,15 @@ HttpSwift.instance
 ```
 
 ### Request type
+All the common HTTTP Method is available
 
-`GET`
+## POST
 
-`POST`
+## PUT
 
-`PUT`
+## DELETE
 
-`DELETE`
-
-`PATCH`
+## PATCH
 
 ## Requirements
 Swift3.0 or latter.
