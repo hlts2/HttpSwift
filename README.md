@@ -14,11 +14,28 @@ import HttpSwift
 The most basic request.
 
 ```swift
-HttpSwift.instance
-    .get(url: "https://~~~~")
+
+let http = HttpSwift.instance
+
+http.get(url: "https://www.google.co.jp/")
     .do() { response in
         print(response)
     }
+
+```
+
+response type is json
+
+```swift
+
+let http = HttpSwift.instance
+
+http.get(url: "https://api.github.com")
+    .setContentsType(.json)
+    .do() { response in
+        print(response) //print json object
+    }
+
 ```
 
 ### Request type
