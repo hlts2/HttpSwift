@@ -16,7 +16,7 @@ The most basic request.
 
 ```swift
 
-let http = HttpSwift.instance
+let http = HTTP.instance
 
 http.get(url: "https://www.google.co.jp/")
     .do() { response in
@@ -29,7 +29,7 @@ response type is json
 
 ```swift
 
-let http = HttpSwift.instance
+let http = HTTP.instance
 
 http.get(url: "https://api.github.com")
     .setContentsType(.json)
