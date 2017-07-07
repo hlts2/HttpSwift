@@ -1,0 +1,25 @@
+import Foundation
+
+public enum ContentsType: String {
+    case text       = "text/plain"
+    case csv        = "text/csv"
+    case html       = "text/html"
+    case json       = "application/json"
+    case css        = "text/css"
+    case js         = "text/javascript"
+    case exe        = "application/octet-stream"
+    case pdf        = "application/pdf"
+    case exel       = "application/vnd.ms-excel"
+    case powerpoint = "application/vnd.ms-powerpoint"
+    case word       = "application/msword"
+    case jpeg       = "image/jpeg"
+    case png        = "image/png"
+    case gif        = "image/gif"
+    case bitmap     = "image/bmp"
+    case zip        = "application/zip"
+    case lzh        = "application/x-lzh"
+    case tar        = "application/x-tar"
+    case mpeg       = "audio/mpeg"
+    case mp4        = "audio/mp4"
+    case video      = "video/mpeg"
+}
