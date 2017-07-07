@@ -42,13 +42,15 @@ http.get(url: "https://api.github.com")
 ## Request type
 All the common HTTTP Method is available
 
-### POST
+- GET
 
-### PUT
+- POST
 
-### DELETE
+- PUT
 
-### PATCH
+- DELETE
+
+- PATCH
 
 
 ## Requirements
