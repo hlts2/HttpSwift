@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8609414B1F11091F00E88E8C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609414A1F11091F00E88E8C /* Extension.swift */; };
 		86796F661F0FF10E0083DB17 /* HttpSwiftError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86796F651F0FF10E0083DB17 /* HttpSwiftError.swift */; };
 		86796F681F0FF11B0083DB17 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86796F671F0FF11B0083DB17 /* Result.swift */; };
 		86796F6A1F0FF1290083DB17 /* ContentsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86796F691F0FF1290083DB17 /* ContentsType.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8609414A1F11091F00E88E8C /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		86796F651F0FF10E0083DB17 /* HttpSwiftError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpSwiftError.swift; sourceTree = "<group>"; };
 		86796F671F0FF11B0083DB17 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		86796F691F0FF1290083DB17 /* ContentsType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsType.swift; sourceTree = "<group>"; };
@@ -75,7 +77,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -83,7 +85,6 @@
 				OBJ_9 /* Tests */,
 				OBJ_12 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -94,6 +95,7 @@
 				86796F671F0FF11B0083DB17 /* Result.swift */,
 				86796F691F0FF1290083DB17 /* ContentsType.swift */,
 				86796F6B1F0FF13E0083DB17 /* Request.swift */,
+				8609414A1F11091F00E88E8C /* Extension.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -157,7 +159,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_12 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -176,6 +178,7 @@
 				86796F681F0FF11B0083DB17 /* Result.swift in Sources */,
 				86796F6A1F0FF1290083DB17 /* ContentsType.swift in Sources */,
 				86796F6C1F0FF13E0083DB17 /* Request.swift in Sources */,
+				8609414B1F11091F00E88E8C /* Extension.swift in Sources */,
 				86796F661F0FF10E0083DB17 /* HttpSwiftError.swift in Sources */,
 				OBJ_20 /* HttpSwift.swift in Sources */,
 			);

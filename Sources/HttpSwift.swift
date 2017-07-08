@@ -1,29 +1,13 @@
 import Foundation
 
-public enum HttpMethod {
-    case GET
-    case POST
-    case PUT
-    case DELETE
-    case PATCH
-    case HEAD
-    
-    public func description() -> String {
-        switch self {
-        case .GET:
-            return "GET"
-        case .POST:
-            return "POST"
-        case .PUT:
-            return "PUT"
-        case .DELETE:
-            return "DELETE"
-        case .PATCH:
-            return "PATCH"
-        case .HEAD:
-            return "HEAD"
-        }
-    }
+public enum HttpMethod: String {
+    case GET        = "GET"
+    case POST       = "POST"
+    case PUT        = "PUT"
+    case DELETE     = "DELETE"
+    case PATCH      = "PATCH"
+    case HEAD       = "HEAD"
+    case UNKNOWN    = "UNKNOWN"
 }
 
 open class HTTP {
