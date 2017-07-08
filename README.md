@@ -56,6 +56,19 @@ let http = HTTP.instance
 
 ```
 
+we can also switch handler
+
+```swift
+
+//no handler
+.do()
+
+//with handler
+.do({ response in
+
+})
+```
+
 ## Request type
 All the common HTTTP Method is available
 
