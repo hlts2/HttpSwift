@@ -23,38 +23,23 @@ HTTP.Get(url: "https://www.google.co.jp/")
 
 ```
 
-response type is json
+We can also add parameters.
 
 ```swift
 
-HTTP.Get(url: "https://api.github.com")
-    .setContentsType(.json)
-    .do() { response in
-        print(response) //print json object
-    }
-
-```
-
-Reuse request
-
-```swift
-let http = HTTP.instance
-
-http.get(url: "https://www.google.co.jp/")
+HTTP.Get(url: "https://www.google.co.jp/")
+    .setQuery(params: ["a": "1", "b": "2"])
     .do() { response in
         print(response)
     }
 
 ```
 
+
 ## Request type
 All the common HTTTP Method is available
 
 - GET
-
-```swift
-
-```
 
 - POST
 
