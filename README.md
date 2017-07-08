@@ -48,7 +48,7 @@ HTTP.Get(url: "https://www.google.co.jp/")
 
 ```
 
-when reusing request. HTTP instance is singleton object
+when reusing request. HTTP instance is singleton object.
 
 ```swift
 
@@ -62,6 +62,14 @@ All the common HTTTP Method is available
 - GET
 
 - POST
+
+```swift
+
+HTTP.Post(url: "https://api.github.com/repos/vmg/redcarpet/")
+    .setQuery(params: ["a": "1", "b": "2"])
+    .do()
+
+```
 
 - PUT
 
