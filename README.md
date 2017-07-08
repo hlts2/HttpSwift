@@ -35,6 +35,18 @@ HTTP.Get(url: "https://www.google.co.jp/")
 
 ```
 
+We can also add content-type. returned object is json selialized object.
+
+```swift
+
+HTTP.Get(url: "https://www.google.co.jp/")
+    .setQuery(params: ["a": "1", "b": "2"])
+    .setContentsType(.json)
+    .do() { response in
+        print(response)
+    }
+
+```
 
 ## Request type
 All the common HTTTP Method is available
