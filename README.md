@@ -38,7 +38,7 @@ http.get(url: "https://api.github.com")
 HTTP.Get(url: "https://api.github.com")
     .setContentsType(.json)
     .do() { response in
-        print(response)
+        print(response) //print json object
     }
 
 ```
