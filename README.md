@@ -16,9 +16,7 @@ The most basic request.
 
 ```swift
 
-let http = HTTP.instance
-
-http.get(url: "https://www.google.co.jp/")
+HTTP.Get(url: "http://www.fringe81.com/recruit/summer2017/")
     .do() { response in
         print(response)
     }
@@ -37,12 +35,25 @@ http.get(url: "https://api.github.com")
         print(response) //print json object
     }
 
+HTTP.Get(url: "https://api.github.com")
+    .setContentsType(.json)
+    .do() { response in
+        print(response)
+    }
+
 ```
 
 ## Request type
 All the common HTTTP Method is available
 
 - GET
+
+```swift
+let http = HTTP.instance
+
+http.
+
+```
 
 - POST
 
