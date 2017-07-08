@@ -48,6 +48,14 @@ HTTP.Get(url: "https://www.google.co.jp/")
 
 ```
 
+when reusing request. HTTP instance is singleton object
+
+```swift
+
+let http = HTTP.instance
+
+```
+
 ## Request type
 All the common HTTTP Method is available
 
