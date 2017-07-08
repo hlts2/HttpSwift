@@ -131,7 +131,7 @@ open class HTTP {
                 handler(error)
             }
             
-            }.resume()
+        }.resume()
     }
     
     //Execute Request
