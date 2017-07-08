@@ -108,7 +108,7 @@ open class HTTP {
                         
                         //Check Contents Type
                         switch self.request.contentsType {
-                        case ContentsType.json?:
+                        case .json?:
                             let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                             
                             handler(json)
