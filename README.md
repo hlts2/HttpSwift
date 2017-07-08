@@ -27,14 +27,6 @@ response type is json
 
 ```swift
 
-let http = HTTP.instance
-
-http.get(url: "https://api.github.com")
-    .setContentsType(.json)
-    .do() { response in
-        print(response) //print json object
-    }
-
 HTTP.Get(url: "https://api.github.com")
     .setContentsType(.json)
     .do() { response in
