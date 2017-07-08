@@ -16,7 +16,7 @@ The most basic request.
 
 ```swift
 
-HTTP.Get(url: "http://www.fringe81.com/recruit/summer2017/")
+HTTP.Get(url: "https://www.google.co.jp/")
     .do() { response in
         print(response)
     }
@@ -35,15 +35,24 @@ HTTP.Get(url: "https://api.github.com")
 
 ```
 
+Reuse request
+
+```swift
+let http = HTTP.instance
+
+http.get(url: "https://www.google.co.jp/")
+    .do() { response in
+        print(response)
+    }
+
+```
+
 ## Request type
 All the common HTTTP Method is available
 
 - GET
 
 ```swift
-let http = HTTP.instance
-
-http.
 
 ```
 
