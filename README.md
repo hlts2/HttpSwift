@@ -56,7 +56,7 @@ let http = HTTP.instance
 
 ```
 
-we can also switch handler
+we can also switch handler type
 
 ```swift
 
