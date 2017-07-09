@@ -88,47 +88,42 @@ open class HTTP {
     
     
     //Execute Request
-    open func `do`(handler: @escaping (_ strData: Any) -> ()) {
+    open func `do`(handler: @escaping (Result<Any, HttpSwiftError>) -> ()) {
         guard let _ = request.url else {
             return
         }
         
         session.dataTask(with: request.createRequest()) { data, response, error in
             
-            do {
+            switch(data, response, error) {
+            case(_, _, let error?):
+                handler(Result(error: .connectionError(error)))
+            case(let data?, let resp, _):
                 
-                switch(data, response, error) {
-                case(_, _, let error?):
-                    throw HttpSwiftError.connectionError(error)
+                //Check Status Code
+                if 200..<300 ~= (resp as! HTTPURLResponse).statusCode {
                     
-                case(let data?, let resp, _):
-                    
-                    //Check Status Code
-                    if 200..<300 ~= (resp as! HTTPURLResponse).statusCode {
-                        
-                        //Check Contents Type
-                        switch self.request.contentsType {
-                        case .json?:
+                    //Check Contents Type
+                    switch self.request.contentsType {
+                    case .json?:
+                        do {
                             let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                            
-                            handler(json)
-                        default:
-                            
-                            if let str = String(data: data, encoding: .utf8) {
-                                handler(str)
-                            } else {
-                                throw HttpSwiftError.responseError
-                            }
+                            handler(Result(value: json))
+                        } catch {
+                            handler(Result(error: .responseError))
                         }
-                        
-                    } else {
-                        throw HttpSwiftError.statusCodeNotSuccess
+                    default:
+                        if let str = String(data: data, encoding: .utf8) {
+                            handler(Result(value: str))
+                        } else {
+                            handler(Result(error: .responseError))
+                        }
                     }
-                default:
-                    fatalError()
+                } else {
+                    handler(Result(error: .statusCodeNotSuccess))
                 }
-            } catch {
-                handler(error)
+            default:
+                fatalError("invalid response")
             }
             
         }.resume()

@@ -8,7 +8,7 @@ public enum Result<T, Error: Swift.Error> {
         self = .success(value)
     }
     
-    init(value: Error) {
-        self = .failure(value)
+    init(error: Error) {
+        self = .failure(error)
     }
 }
