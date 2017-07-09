@@ -28,7 +28,7 @@ HTTP.Get(url: "https://www.google.co.jp/")
 
 ```
 
-You can also add parameters.
+We can also add parameters.
 
 ```swift
 
@@ -45,7 +45,7 @@ HTTP.Get(url: "https://www.google.co.jp/")
 
 ```
 
-You can also add content-type. returned object is json selialized object.
+We can also add content-type. returned object is json selialized object.
 
 ```swift
 
@@ -71,7 +71,7 @@ let http = HTTP.instance
 
 ```
 
-we can also switch handler type
+We can also switch handler type
 
 ```swift
 
@@ -79,7 +79,7 @@ we can also switch handler type
 .do()
 
 //with handler
-.do({ response in
+.do({ result in
 
 })
 ```
