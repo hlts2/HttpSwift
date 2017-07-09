@@ -17,8 +17,13 @@ The most basic request.
 ```swift
 
 HTTP.Get(url: "https://www.google.co.jp/")
-    .do() { response in
-        print(response)
+    .do() { result in
+        switch result {
+        case .success(let value):
+            print(value)
+        case .failure(let error):
+            print(error)
+        }
     }
 
 ```
@@ -29,8 +34,13 @@ We can also add parameters.
 
 HTTP.Get(url: "https://www.google.co.jp/")
     .setQuery(params: ["a": "1", "b": "2"])
-    .do() { response in
-        print(response)
+    .do() { result in
+        switch result {
+        case .success(let value):
+            print(value)
+        case .failure(let error):
+            print(error)
+        }
     }
 
 ```
@@ -42,8 +52,13 @@ We can also add content-type. returned object is json selialized object.
 HTTP.Get(url: "https://www.google.co.jp/")
     .setQuery(params: ["a": "1", "b": "2"])
     .setContentsType(.json)
-    .do() { response in
-        print(response)
+    .do() { result in
+        switch result {
+        case .success(let value):
+            print(value)
+        case .failure(let error):
+            print(error)
+        }
     }
 
 ```
