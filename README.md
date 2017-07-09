@@ -28,7 +28,7 @@ HTTP.Get(url: "https://www.google.co.jp/")
 
 ```
 
-We can also add parameters.
+You can also add parameters.
 
 ```swift
 
