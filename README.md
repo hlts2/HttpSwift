@@ -55,7 +55,7 @@ HTTP.Get(url: "https://www.google.co.jp/")
     .do() { result in
         switch result {
         case .success(let value):
-            print(value)
+            print(value)        //Json Serialized Object
         case .failure(let error):
             print(error)
         }
