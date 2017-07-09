@@ -45,7 +45,7 @@ HTTP.Get(url: "https://www.google.co.jp/")
 
 ```
 
-We can also add content-type. returned object is json selialized object.
+You can also add content-type. returned object is json selialized object.
 
 ```swift
 
