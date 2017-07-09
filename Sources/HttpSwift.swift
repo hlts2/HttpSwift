@@ -125,7 +125,6 @@ open class HTTP {
             default:
                 fatalError("invalid response")
             }
-            
         }.resume()
     }
     
