@@ -105,6 +105,14 @@ HTTP.Post(url: "https://api.github.com/repos/vmg/redcarpet/")
 
 - PATCH
 
+### Request Cancel
+You want to cancel the request. You call cancel method.
+
+```swift
+let http = HTTP.instance
+
+http.cancel()
+```
 
 ## Requirements
 Swift3.0 or latter.
