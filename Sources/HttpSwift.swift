@@ -86,6 +86,10 @@ open class HTTP {
         return HTTP().delete(url: url)
     }
     
+    open func cancel() {
+        session.invalidateAndCancel()
+    }
+    
     
     //Execute Request
     open func `do`(handler: @escaping (Result<Any, HttpSwiftError>) -> ()) {
