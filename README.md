@@ -114,6 +114,15 @@ let http = HTTP.instance
 http.cancel()
 ```
 
+### Custom Header
+You want to add the custom request header.
+
+```
+let http = HTTP.instance
+
+http.setHeader(headers: ["test1": "1", "test2": "2"])
+```
+
 ## Requirements
 Swift3.0 or latter.
 
