@@ -24,15 +24,21 @@ open class HTTP {
         return HTTP()
     }()
     
-    //Setting Content-type Header
+    //Add Content-type into Request Header
     open func setContentsType(_ type: ContentsType) -> HTTP {
         request.contentsType = type
         return self
     }
     
-    //Setting Request Parameter
+    //Add Request Parameter
     open func setQuery(params: [String: String]) -> HTTP {
         self.request.params = params
+        return self
+    }
+    
+    //Add Request Custom Header
+    open func setHeader(headers: [String: String]) -> HTTP {
+        self.request.headers = headers
         return self
     }
     
