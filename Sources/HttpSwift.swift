@@ -42,6 +42,19 @@ open class HTTP {
         return self
     }
     
+    open func addHeader(headers: [String: String]) -> HTTP {
+        guard let _ = self.request.headers else {
+            self.request.headers = headers
+            return self
+        }
+        
+        for (key, value) in headers {
+            self.request.headers![key] = value
+        }
+        
+        return self
+    }
+    
     open func get(url: String) -> HTTP {
         self.request.url = url
         self.request.method = HttpMethod.GET
