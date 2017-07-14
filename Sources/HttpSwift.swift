@@ -42,6 +42,11 @@ open class HTTP {
         return self
     }
     
+    open func setCookie(cookies: [String: String]) -> HTTP {
+        //TODO setting cookie
+        return self
+    }
+    
     open func addHeader(headers: [String: String]) -> HTTP {
         guard let _ = self.request.headers else {
             self.request.headers = headers
