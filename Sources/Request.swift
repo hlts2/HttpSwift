@@ -4,6 +4,7 @@ open class Request {
     open var url: String!
     open var headers: [String: String]?
     open var params: [String: String]?
+    open var cookies: [String: String]?
     open var method: HttpMethod!
     open var contentsType: ContentsType?
     
@@ -21,6 +22,15 @@ open class Request {
             } else {
                 request.appendParamsIntoBody(params: params)
             }
+        }
+        
+        //Set Cookie
+        if let cookies = self.cookies {
+            for(key, val) in cookies {
+                request.addValue(key + "=" + val, forHTTPHeaderField: "Cookie")
+            }
+            
+            request.httpShouldHandleCookies = true
         }
         
         //Set Contects Type

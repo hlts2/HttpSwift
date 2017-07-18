@@ -24,39 +24,47 @@ open class HTTP {
         return HTTP()
     }()
     
-    //Add Content-type into Request Header
+    //Set Content-type into Request Header
     open func setContentsType(_ type: ContentsType) -> HTTP {
         request.contentsType = type
         return self
     }
     
-    //Add Request Parameter
+    //Set Request Parameter
     open func setQuery(params: [String: String]) -> HTTP {
         self.request.params = params
         return self
     }
     
-    //Add Request Custom Header
+    //Set Request Custom Header
     open func setHeader(headers: [String: String]) -> HTTP {
         self.request.headers = headers
         return self
     }
     
+    //Set Request Cookies
     open func setCookie(cookies: [String: String]) -> HTTP {
-        //TODO setting cookie
+        self.request.cookies = cookies
         return self
     }
     
-    open func addHeader(headers: [String: String]) -> HTTP {
-        guard let _ = self.request.headers else {
-            self.request.headers = headers
-            return self
+    //Add Request Header
+    open func addHeader(key: String, value: String) -> HTTP {
+        if self.request.headers == nil {
+            self.request.headers = [String: String]()
         }
         
-        for (key, value) in headers {
-            self.request.headers![key] = value
+        self.request.headers![key] = value
+        return self
+    }
+    
+    //Add Request Cookie
+    open func addCookie(key: String, value: String) -> HTTP {
+        if self.request.cookies == nil {
+            self.request.cookies = [String: String]()
         }
         
+        self.request.cookies![key] = value
         return self
     }
     
