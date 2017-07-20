@@ -68,6 +68,11 @@ open class HTTP {
         return self
     }
     
+    open func basicAuth() -> HTTP {
+        //TODO Basic Authentication in URL Params
+        return self
+    }
+    
     open func get(url: String) -> HTTP {
         self.request.url = url
         self.request.method = HttpMethod.GET
