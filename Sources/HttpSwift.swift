@@ -68,7 +68,7 @@ open class HTTP {
         return self
     }
     
-    open func basicAuth() -> HTTP {
+    open func basicAuth(id: String, pw: String) -> HTTP {
         //TODO Basic Authentication in URL Params
         return self
     }
