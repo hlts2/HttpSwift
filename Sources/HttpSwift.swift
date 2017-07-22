@@ -68,9 +68,14 @@ open class HTTP {
         return self
     }
     
+    //Set Basc Request
     open func basicAuth(id: String, pw: String) -> HTTP {
-        //TODO Basic Authentication in URL Params
-        return self
+        guard let data = (id + ":" + pw).data(using: String.Encoding.utf8) else {
+            return self
+        }
+        
+        let b64 = data.base64EncodedString()
+        return self.addHeader(key: "Authorization", value: "Basic " + b64)
     }
     
     open func get(url: String) -> HTTP {
