@@ -33,12 +33,7 @@ open class Request {
             request.httpShouldHandleCookies = true
         }
         
-        //Set Contects Type
-        if let type = contentsType {
-            request.addValue(type.rawValue, forHTTPHeaderField: "Content-Type")
-        }
-        
-        //Set Custom Header
+        //Set Header
         if let headers = self.headers {
             for (key, val) in headers {
                 request.addValue(val, forHTTPHeaderField: key)

@@ -26,8 +26,8 @@ open class HTTP {
     
     //Set Content-type into Request Header
     open func setContentsType(_ type: ContentsType) -> HTTP {
-        request.contentsType = type
-        return self
+        self.request.contentsType = type
+        return self.addHeader(key: "Content-Type", value: type.rawValue)
     }
     
     //Set Request Parameter
