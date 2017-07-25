@@ -6,7 +6,6 @@ open class Request {
     open var params: [String: String]?
     open var cookies: [String: String]?
     open var method: HttpMethod!
-    open var contentsType: ContentsType?
     
     func createRequest() -> URLRequest {
         
@@ -33,7 +32,7 @@ open class Request {
             request.httpShouldHandleCookies = true
         }
         
-        //Set Header
+        //Set Custom Header
         if let headers = self.headers {
             for (key, val) in headers {
                 request.addValue(val, forHTTPHeaderField: key)

@@ -26,7 +26,6 @@ open class HTTP {
     
     //Set Content-type into Request Header
     open func setContentsType(_ type: ContentsType) -> HTTP {
-        self.request.contentsType = type
         return self.addHeader(key: "Content-Type", value: type.rawValue)
     }
     
@@ -150,8 +149,8 @@ open class HTTP {
                 if 200..<300 ~= (resp as! HTTPURLResponse).statusCode {
                     
                     //Check Contents Type
-                    switch self.request.contentsType {
-                    case .json?:
+                    switch self.request.headers?["Content-Type"] {
+                    case "json"?:
                         do {
                             let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                             handler(Result(value: json))
