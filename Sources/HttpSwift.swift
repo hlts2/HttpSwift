@@ -24,30 +24,11 @@ open class HTTP {
         return HTTP()
     }()
     
-    //Set Content-type into Request Header
-    open func setContentsType(_ type: ContentsType) -> HTTP {
-        return self.addHeader(key: "Content-Type", value: type.rawValue)
-    }
-    
-    //Set Request Parameter
-    open func setQuery(params: [String: String]) -> HTTP {
-        self.request.params = params
-        return self
-    }
-    
-    //Set Request Custom Header
     open func setHeader(headers: [String: String]) -> HTTP {
         self.request.headers = headers
         return self
     }
     
-    //Set Request Cookies
-    open func setCookie(cookies: [String: String]) -> HTTP {
-        self.request.cookies = cookies
-        return self
-    }
-    
-    //Add Request Header
     open func addHeader(key: String, value: String) -> HTTP {
         if self.request.headers == nil {
             self.request.headers = [String: String]()
@@ -57,7 +38,11 @@ open class HTTP {
         return self
     }
     
-    //Add Request Cookie
+    open func setCookie(cookies: [String: String]) -> HTTP {
+        self.request.cookies = cookies
+        return self
+    }
+    
     open func addCookie(key: String, value: String) -> HTTP {
         if self.request.cookies == nil {
             self.request.cookies = [String: String]()
@@ -67,7 +52,19 @@ open class HTTP {
         return self
     }
     
-    //Set Basc Request
+    open func setContentsType(_ type: ContentsType) -> HTTP {
+        return self.addHeader(key: "Content-Type", value: type.rawValue)
+    }
+    
+    open func setQuery(params: [String: String]) -> HTTP {
+        self.request.params = params
+        return self
+    }
+    
+    open func setUserAgent(agent: String) -> HTTP {
+        return self.addHeader(key: "User-Agent", value: agent)
+    }
+    
     open func basicAuth(id: String, pw: String) -> HTTP {
         guard let data = (id + ":" + pw).data(using: String.Encoding.utf8) else {
             return self
