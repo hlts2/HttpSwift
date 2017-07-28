@@ -24,11 +24,6 @@ open class HTTP {
         return HTTP()
     }()
     
-    open func setBaseURL(url: String) -> HTTP {
-        self.request.url = url
-        return self
-    }
-    
     open func setHeader(headers: [String: String]) -> HTTP {
         self.request.headers = headers
         return self
