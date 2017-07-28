@@ -65,6 +65,10 @@ open class HTTP {
         return self.addHeader(key: "User-Agent", value: agent)
     }
     
+    open func setAuth(token: String) -> HTTP {
+        return self.addHeader(key: "Authorization", value: "Beare " + token)
+    }
+    
     open func basicAuth(id: String, pw: String) -> HTTP {
         guard let data = (id + ":" + pw).data(using: String.Encoding.utf8) else {
             return self
