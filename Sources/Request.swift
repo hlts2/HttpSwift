@@ -1,7 +1,13 @@
 import Foundation
 
 open class Request {
-    open var url: String!
+    open var baseURL: String!
+    open var path: String!
+    open var url: String! {
+        get {
+            return baseURL + path
+        }
+    }
     open var headers: [String: String]?
     open var params: [String: String]?
     open var cookies: [String: String]?

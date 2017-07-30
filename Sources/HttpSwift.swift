@@ -24,6 +24,11 @@ open class HTTP {
         return HTTP()
     }()
     
+    open func setBaseURL(url: String) -> HTTP {
+        self.request.baseURL = url
+        return self
+    }
+    
     open func setHeader(headers: [String: String]) -> HTTP {
         self.request.headers = headers
         return self
@@ -78,60 +83,64 @@ open class HTTP {
         return self.addHeader(key: "Authorization", value: "Basic " + b64)
     }
     
-    open func get(url: String) -> HTTP {
-        self.request.url = url
+    //TODO Set Proxy
+    open func setProxy() -> HTTP {
+        return self
+    }
+    
+    open func get(_ path: String) -> HTTP {
+        self.request.path = path
         self.request.method = HttpMethod.GET
         return self
     }
     
-    open class func Get(url: String) -> HTTP {
-        return HTTP().get(url: url)
+    open class func Get(_ path: String) -> HTTP {
+        return HTTP().get(path)
     }
     
-    open func post(url: String) -> HTTP {
-        self.request.url = url
+    open func post(_ path: String) -> HTTP {
+        self.request.path = path
         self.request.method = HttpMethod.POST
         return self
     }
     
-    open class func Post(url: String) -> HTTP {
-        return HTTP().post(url: url)
+    open class func Post(_ path: String) -> HTTP {
+        return HTTP().post(path)
     }
     
-    open func put(url: String) -> HTTP {
-        self.request.url = url
+    open func put(_ path: String) -> HTTP {
+        self.request.path = path
         self.request.method = HttpMethod.PUT
         return self
     }
     
-    open class func Put(url: String) -> HTTP {
-        return HTTP().put(url: url)
+    open class func Put(_ path: String) -> HTTP {
+        return HTTP().put(path)
     }
     
-    open func patch(url: String) -> HTTP {
-        self.request.url = url
+    open func patch(_ path: String) -> HTTP {
+        self.request.path = path
         self.request.method = HttpMethod.PATCH
         return self
     }
     
-    open class func Patch(url: String) -> HTTP {
-        return HTTP().patch(url: url)
+    open class func Patch(_ path: String) -> HTTP {
+        return HTTP().patch(path)
     }
     
-    open func delete(url: String) -> HTTP {
-        self.request.url = url
+    open func delete(_ path: String) -> HTTP {
+        self.request.path = path
         self.request.method = HttpMethod.DELETE
         return self
     }
     
-    open class func Delete(url: String) -> HTTP {
-        return HTTP().delete(url: url)
+    open class func Delete(_ path: String) -> HTTP {
+        return HTTP().delete(path)
     }
     
     open func cancel() {
         session.invalidateAndCancel()
     }
-    
     
     //Execute Request
     open func `do`(handler: @escaping (Result<Any, HttpSwiftError>) -> ()) {
@@ -171,7 +180,7 @@ open class HTTP {
             default:
                 fatalError("invalid response")
             }
-        }.resume()
+            }.resume()
     }
     
     //Execute Request
