@@ -24,8 +24,6 @@ open class HTTP {
         return HTTP()
     }()
     
-    
-    
     open func setHeader(headers: [String: String]) -> HTTP {
         self.request.headers = headers
         return self
@@ -78,6 +76,11 @@ open class HTTP {
         
         let b64 = data.base64EncodedString()
         return self.addHeader(key: "Authorization", value: "Basic " + b64)
+    }
+    
+    //TODO Set Proxy
+    open func setProxy() -> HTTP {
+        return self
     }
     
     open func get(url: String) -> HTTP {
@@ -134,7 +137,6 @@ open class HTTP {
         session.invalidateAndCancel()
     }
     
-    
     //Execute Request
     open func `do`(handler: @escaping (Result<Any, HttpSwiftError>) -> ()) {
         guard let _ = request.url else {
@@ -173,7 +175,7 @@ open class HTTP {
             default:
                 fatalError("invalid response")
             }
-        }.resume()
+            }.resume()
     }
     
     //Execute Request
