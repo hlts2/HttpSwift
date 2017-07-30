@@ -24,6 +24,8 @@ open class HTTP {
         return HTTP()
     }()
     
+    
+    
     open func setHeader(headers: [String: String]) -> HTTP {
         self.request.headers = headers
         return self
