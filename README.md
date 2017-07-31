@@ -129,14 +129,6 @@ All the common HTTTP Method is available
 
 - POST
 
-```swift
-
-HTTP.Post(url: "https://api.github.com/repos/vmg/redcarpet/")
-    .setQuery(params: ["a": "1", "b": "2"])
-    .do()
-
-```
-
 - PUT
 
 - DELETE
