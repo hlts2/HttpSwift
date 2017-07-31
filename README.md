@@ -63,6 +63,44 @@ HTTP.Get(url: "https://www.google.co.jp/")
 
 ```
 
+We can also add User-Agent.
+
+```swift
+
+HTTP.Get(url: "https://www.google.co.jp/")
+    .setUserAgent(agent: "Agent_Name")
+    .do() { result in
+        switch result {
+        case .success(let value):
+            print(value)
+        case .failure(let error):
+            print(error)
+        }
+}
+
+```
+
+We can also add Authorization.
+
+```swift
+
+HTTP.Get(url: "https://www.google.co.jp/")
+    .setAuth(token: "token string")
+    .do()
+}
+
+```
+
+We can also add Basic Authorization.
+
+```swift
+
+HTTP.Get(url: "https://www.google.co.jp/")
+    .basicAuth(id: "id", pw: "pass word")
+    .do()
+
+```
+
 when reusing request. HTTP instance is singleton object.
 
 ```swift

@@ -175,7 +175,7 @@ open class HTTP {
             default:
                 fatalError("invalid response")
             }
-            }.resume()
+        }.resume()
     }
     
     //Execute Request

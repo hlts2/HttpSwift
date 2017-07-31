@@ -2,14 +2,37 @@ import XCTest
 @testable import HttpSwift
 
 class HttpSwiftTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssertEqual(HttpSwift().text, "Hello, World!")
+    
+    func testGetRequestWithoutHandler() {
+        HTTP.instance.get(url: "http://httpbin.org/get").do()
+    }
+    
+    func testGetRequest() {
+        HTTP.instance
+            .get(url: "http://httpbin.org/get").do { result in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func testCustomHeader() {
+        HTTP.instance
+            .get(url: "http://httpbin.org/headers")
+            .setHeader(headers: ["key1": "1", "key2": "2"]).do { result in
+                switch result {
+                case .success(let response):
+                    print(response)
+                case .failure(let error):
+                    print(error)
+                }
+        }
     }
 
-
     static var allTests = [
-        ("testExample", testExample),
+        ("testGetRequest", testGetRequest),
     ]
 }
