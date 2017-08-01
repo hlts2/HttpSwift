@@ -81,7 +81,7 @@ open class HTTP {
     open func setProxy(host: String, port: String) -> HTTP {
         session.configuration.connectionProxyDictionary = [AnyHashable: Any]()
         session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPEnable as String] = 1
-        session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPPort as String] = host
+        session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPProxy as String] = host
         session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPPort as String] = port
         return self
     }
