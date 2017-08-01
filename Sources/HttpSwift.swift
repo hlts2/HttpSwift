@@ -78,9 +78,16 @@ open class HTTP {
         return self.addHeader(key: "Authorization", value: "Basic " + b64)
     }
     
-    //TODO Set Proxy
     open func setProxy(host: String, port: String) -> HTTP {
+        session.configuration.connectionProxyDictionary = [AnyHashable: Any]()
+        session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPEnable as String] = 1
+        session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPPort as String] = host
+        session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPPort as String] = port
         return self
+    }
+    
+    open func delProxy() {
+        session.configuration.connectionProxyDictionary = nil
     }
     
     open func get(url: String) -> HTTP {
