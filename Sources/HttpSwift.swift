@@ -79,7 +79,7 @@ open class HTTP {
     }
     
     //TODO Set Proxy
-    open func setProxy() -> HTTP {
+    open func setProxy(host: String, port: String) -> HTTP {
         return self
     }
     
