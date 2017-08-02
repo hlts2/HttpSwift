@@ -101,6 +101,15 @@ HTTP.Get(url: "https://www.google.co.jp/")
 
 ```
 
+We can also add Proxy.
+
+```swift
+
+HTTP.Get(url: "https://www.google.co.jp/")
+    .setProxy(host: "192.168.3.30", port: "3030")
+    .do()
+```
+
 when reusing request. HTTP instance is singleton object.
 
 ```swift
