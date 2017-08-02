@@ -78,16 +78,21 @@ open class HTTP {
         return self.addHeader(key: "Authorization", value: "Basic " + b64)
     }
     
+    private enum ProxyStatus: Int {
+        case on  = 1
+        case off = 0
+    }
+    
     open func setProxy(host: String, port: String) -> HTTP {
         session.configuration.connectionProxyDictionary = [AnyHashable: Any]()
-        session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPEnable as String] = 1
-        session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPProxy as String] = host
-        session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPPort as String] = port
+        session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPEnable as String] = ProxyStatus.on
+        session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPProxy as String]  = host
+        session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPPort as String]   = port
         return self
     }
     
     open func delProxy() -> HTTP {
-        session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPEnable as String] = 0
+        session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPEnable as String] = ProxyStatus.off
         return self
     }
     
