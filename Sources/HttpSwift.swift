@@ -86,9 +86,9 @@ open class HTTP {
         return self
     }
     
-    open func delProxy() {
+    open func delProxy() -> HTTP {
         session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPEnable as String] = 0
-        session.configuration.connectionProxyDictionary = nil
+        return self
     }
     
     open func get(url: String) -> HTTP {
