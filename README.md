@@ -76,7 +76,7 @@ HTTP.Get(url: "https://www.google.co.jp/")
         case .failure(let error):
             print(error)
         }
-}
+    }
 
 ```
 
