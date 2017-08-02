@@ -87,6 +87,7 @@ open class HTTP {
     }
     
     open func delProxy() {
+        session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPEnable as String] = 0
         session.configuration.connectionProxyDictionary = nil
     }
     
