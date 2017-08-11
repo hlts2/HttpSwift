@@ -3,10 +3,6 @@ import XCTest
 
 class HttpSwiftTests: XCTestCase {
 
-    func testGetRequestWithoutHandler() {
-        HTTP.instance.get(url: "http://httpbin.org/get").do()
-    }
-
     func testGetRequest() {
         let expectation = self.expectation(description: "get request test")
 
@@ -26,7 +22,6 @@ class HttpSwiftTests: XCTestCase {
     }
 
     func testCustomHeader() {
-
         let expectation = self.expectation(description: "custom header request test")
 
         HTTP.instance
